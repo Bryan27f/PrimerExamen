@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href= "index.html">Agregar evento</a></li>
+                    <li><<a th:href="@{/delete/{id}(id=${user.getId})}">Eliminar</a></li>                 
+                </ul>
+            </nav>
+
+        </header>
+        <h1 th:text="${titulo}"></h1>
+        <table>
+
+
+
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Artista</th>
+                    <th scope="col">Costo del evento </th>
+                    <th scope="col">Fecha </th>
+                    <th scope="col">Capacidad maxima de personas </th>
+                    <th scope="col">Lugar </th>
+                    <th scope="col">Eliminar evento </th>
+                </tr>
+            </thead>
+
+
+
+            <tbody>
+            <th:block th:each="user : ${home}">
+                <tr>
+                    <td th:text="${user.getartista}"></td>
+                    <td th:text="${user.getcosto}"></td>
+                    <td th:text="${user.getfecha}"></td>
+                    <td th:text="${user.getcapacidad}"></td>
+                    <td th:text="${user.getlugar}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
